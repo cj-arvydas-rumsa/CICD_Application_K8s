@@ -61,7 +61,7 @@ jobs:
         name: changing the deployment of git repo
         with:
           repository: 'cj-arvydas-rumsa/App-Manifest-'
-          token: ${{ secrets.GIT_PASSWORD }}
+          token: ${{ secrets.API_TOKEN_GITHUB }}
       - name: modify the image
         run: |
           git config user.email arvydas@rumsa.lt
@@ -75,6 +75,5 @@ jobs:
           git commit -m 'Done  by Github Actions   Job changemanifest: ${{ github.run_number }}'
           git push origin main
         env:
-          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
-          GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
           RUN_NUMBER: ${{ github.run_number }}
